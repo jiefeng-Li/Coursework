@@ -1,0 +1,52 @@
+.banner {
+    position: absolute;
+    height: 100%;
+    width: 1500px;
+    background-color: greenyellow;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.banner > a {
+    float: left;
+    width: 300px;
+    height: 100%;
+    background-color: #fff; 
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: large;
+    line-height: 80px;
+}
+
+
+.banner > a:hover {
+    background-color: #777;
+    color: white;
+}
+
+
+.banner > .normalNight {
+    background-color: #555;
+    color: black;
+}
+
+.normalNight:hover {
+    background-color: #777;
+    color: white;
+}
+
+
+.banner > .normalDay {
+    background-color: #fff; 
+}
+
+.banner > .activeDay {
+    background-color: #777;
+    color: white;
+}
+
+.banner > .activeNight {
+    background-color: #777;
+    color: white;
+}

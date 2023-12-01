@@ -1,0 +1,102 @@
+.changeDay{
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    width: 60px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: black;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
+
+.changeNight {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    width: 60px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: white;
+    color: black;
+    line-height: 50px;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
+
+.resources {
+    position: absolute;
+    left: 360px;
+    top: 20px;
+    height: 160px;
+    width: 1200px;
+    background-color: rgba(135, 135, 135, 0.6);
+}
+
+
+.resources > span {
+    display: block;
+    position: absolute;
+    line-height: 60px;
+    width: 60px;
+    height: 120px;
+    font-size: 30px;
+    top: 20px;
+    left: 30px;
+}
+
+.placeholder1 {
+    position: absolute;
+    height: 160px;
+    width: 310px;
+    left: 30px;
+    top: 20px;
+    background-color: rgba(135, 135, 135, 0.6);
+    font-size: 20px;
+    line-height: 30px;
+}
+
+
+.placeholder1 div {
+    width: 290px;
+    height: 40px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.timer {
+    position: absolute;
+    height: 160px;
+    width: 310px;
+    right: 30px;
+    top: 20px;
+    background-color: rgba(135, 135, 135, 0.6);
+}
+
+.timer > span {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    background-color: #aaa;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.foot a{
+    color: black;
+    text-decoration: none;
+}
+
+.foot a:hover {
+    color: red !important;
+}

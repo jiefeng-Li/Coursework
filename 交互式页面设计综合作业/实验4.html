@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myproject</title>
+
+    <link rel="stylesheet" href="./css_folder/overall.css">
+    <link rel="stylesheet" href="./css_folder/nav.css">
+    <link rel="stylesheet" href="./css_folder/content.css">
+    <link rel="stylesheet" href="./css_folder/foot.css">
+    <script src="./js_folder/changeTheme.js"></script>
+    <script src="./js_folder/nav_a_action.js"></script>
+    <script src="./js_folder/display.js"></script>
+
+</head>
+
+<body>
+    <div class="overall" id="overall">
+        <div class="content">
+            <div class="leftArea">
+                <a href="javaScript:;" class="activeDayCnt">桌子</a>
+                <a href="javaScript:;">椅子</a>
+                <a href="javaScript:;">衣柜</a>
+                <a href="javaScript:;">茶几</a>
+                <a href="javaScript:;">沙发</a>
+                <a href="javaScript:;">抽屉柜</a>
+                <a href="javaScript:;">实木门</a>
+                <a href="javaScript:;">浴缸</a>
+            </div>
+            <div class="rightArea">
+                <div class="imgArea">
+                    <img src="./image/00.jpg" alt="" id="goodsImg">
+                </div>
+                <div class="detail">
+                    <div class="description">
+                        <p style="text-indent: 2em;" id="description">网红甜品店咖啡厅铁艺休闲桌椅现代小酒馆饭店方形实木餐桌椅组合</p>
+                    </div>
+                    <div class="price">
+                        售价
+                        <div id="price">
+                            123$
+                        </div>
+                        <div class="buy">
+                            立即购买
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav" id="nav">
+            <div class="banner">
+                <a href="javaScript:;" class="activeDay">家具</a>
+                <a href="javaScript:;">电器</a>
+                <a href="javaScript:;">玩具</a>
+                <a href="javaScript:;">蔬果</a>
+                <a href="javaScript:;">衣物</a>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="placeholder1">
+                <div>writenBy jiefeng-Li</div>
+                <div>学号：2022021137</div>
+                <div>软工222</div>
+            </div>
+            
+            <div class="resources">
+                <span>
+                    参考资料
+                </span>
+                <div
+                    style="position: absolute;; width: 1000px; height: 120px; text-align: center; font-size: 24px; top: 10px; right: 20px; line-height: 36px;">
+                    <div>
+                        <span style="display: inline-block;">
+                            显示居中
+                        </span>
+                        <a href="https://blog.csdn.net/yth_m_123/article/details/106315894"
+                            target="_blank">https://blog.csdn.net/yth_m_123/article/details/106315894</a>
+                        <span style="display: inline-block;">
+                            setInterval不执行的问题
+                        </span>
+                        <a href="https://segmentfault.com/q/1010000003934439"
+                            target="_blank">https://segmentfault.com/q/1010000003934439</a>
+                        <span style="display: inline-block;">
+                            定位失效原因及解决方案
+                        </span>
+                        <a href="https://zhuanlan.zhihu.com/p/461011304"
+                            target="_blank">https://zhuanlan.zhihu.com/p/461011304</a>
+                        <span style="display: inline-block;">a标签hover不生效的问题</span>
+                        <a href="https://www.cnblogs.com/muzii/p/14983481.html"
+                            target="_blank">https://www.cnblogs.com/muzii/p/14983481.html</a>
+                    </div>
+                </div>
+            </div>
+            <div class="timer" id="timer">
+                <span>year-month-day</span>
+                <span>hour:minune:second</span>
+            </div>
+        </div>
+        <div class="changeDay" id="changeTheme">☀</div>
+    </div>
+
+    <script>
+        var btn = document.getElementById('changeTheme');//-----右下角改变主题的按钮
+        var nav = document.getElementById('nav');//-------------上面的导航栏
+        var ctnt = document.getElementsByClassName('content');//中间的整个div
+        var nav_a = nav.querySelectorAll('a');//----------------上面导航栏里面的a标签
+        var ctnt_a = ctnt[0].querySelectorAll('a');//-----------中间的div里面的a标签
+        var ctnt_right = ctnt[0].children[1];//-----------------中间的右边区域
+        var ft = document.getElementsByClassName('foot');//-----底部foot区域
+        var goodsImg = document.getElementById('goodsImg');//---商品图片
+        var goodsDsc = document.getElementById('description');//商品描述信息
+        var goodsPrc = document.getElementById('price');//------商品价格
+
+        window.onload = () => {
+
+
+            for (let i = 0; i < nav_a.length; i++) {
+                nav_a[i].setAttribute('index', i);
+                console.log(nav_a[i].getAttribute('index'));
+                // console.log(parseInt(nav_a[i].getAttribute('index')))
+            }
+            for (let i = 0; i < ctnt_a.length; i++) {
+                ctnt_a[i].setAttribute('index', i);
+                ctnt_a[i].setAttribute('parentIndex', 0);
+                // console.log(typeof ctnt_a[i].getAttribute('index'));
+            }
+
+            btn.onclick = function () {
+                if (this.className == 'changeNight') {
+                    changeToDay();
+                } else {
+                    changeToNight();
+                }
+            }
+
+            nav_a.forEach(element => {
+                element.onclick = function () {
+                    for (let i = 0; i < nav_a.length; i++) {
+                        if (btn.className == 'changeNight')
+                            nav_a[i].className = 'normalNight';
+                        else
+                            nav_a[i].className = 'normalDay';
+                    }
+                    if (btn.className == 'changeNight') {
+                        this.className = 'activeNight';
+                        ctnt_a[0].className = 'activeNightCnt';
+                    }
+                    else {
+                        this.className = 'activeDay';
+                        ctnt_a[0].className = 'activeDayCnt';
+                    }
+                    for (let i = 1; i < ctnt_a.length; i++) {
+                        if (btn.className == 'changeNight')
+                            ctnt_a[i].className = 'normalNightCnt';
+                        else
+                            ctnt_a[i].className = 'normalDayCnt';
+                        ctnt_a[i].setAttribute('parentIndex', element.getAttribute('index'));
+                    }
+                    typeSwich(parseInt(element.getAttribute('index')));
+                    imgSwich(element.getAttribute('index'), 0);
+                    ctnt_a[0].setAttribute('parentIndex', element.getAttribute('index'));
+                    rightSwich(parseInt(element.getAttribute('index')), 0);
+                }
+            });
+
+            ctnt_a.forEach(element => {
+                element.onclick = function () {
+                    for (let i = 0; i < ctnt_a.length; i++) {
+                        if (btn.className == 'changeNight')
+                            ctnt_a[i].className = 'normalNightCnt';
+                        else
+                            ctnt_a[i].className = 'normalDayCnt';
+                    }
+                    if (btn.className == 'changeNight')
+                        this.className = 'activeNightCnt';
+                    else
+                        this.className = 'activeDayCnt';
+                    imgSwich(element.getAttribute('parentIndex'), element.getAttribute('index'));
+                    rightSwich(parseInt(element.getAttribute('parentIndex')), parseInt(element.getAttribute('index')))
+                }
+            })
+        }
+
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
+
+        setInterval(function () {
+            let timer = document.getElementById('timer');
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDate();
+            let hour = date.getHours()
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            timer.children[0].innerText = year + '-' + (month + 1) + '-' + day;
+            timer.children[1].innerText = hour + ' : ' + min + ' : ' + sec;
+        }, 1000);
+    </script>
+</body>
+
+</html>
